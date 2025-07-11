@@ -18,8 +18,8 @@ This project provides an end-to-end analysis of customer churn for a fictional t
 
 1.  **Data Ingestion:** The "Telco Customer Churn" dataset (CSV) was ingested into the Fabric Lakehouse.
 2.  **Data Cleaning:** A Dataflow Gen2 was used to clean the raw data, including correcting data types and handling blank values. The clean data was loaded into a Delta table.
-3.  **Data Modeling:** A PySpark notebook transformed the clean data into a star schema with a `fact_churn` table and a `dim_customer` table, which is highly optimized for analytics.
-4.  **DAX Measures:** Key business metrics were created using DAX, including `Churn Rate`, `Retention Rate`, and `Average Tenure`.
+3.  **Data Modeling:** A PySpark notebook transformed the clean data into a star schema with a fact_churn table and a dim_customer table, which is highly optimized for analytics.
+4.  **DAX Measures:** Key business metrics were created using DAX, including Churn Rate, Retention Rate, and Average Tenure.
 5.  **Dashboarding:** An interactive Power BI dashboard was built with cards, charts, and slicers to visualize the key insights.
 
 ## Final Dashboard
