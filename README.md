@@ -1,40 +1,34 @@
-# PowerBI-CustomerRetention
-An end-to-end customer churn analysis project using Microsoft Fabric for data engineering and Power BI for the interactive dashboard.
-# Customer Retention & Churn Analytics Dashboard
+# Customer Churn Prediction Model
 
-## Introduction
+This repository contains the code and documentation for an end-to-end project focused on predicting customer churn for a telecommunications company. The project leverages a modern data stack to move from raw data to actionable business insights.
 
-This project provides an end-to-end analysis of customer churn for a fictional telecommunications company. The objective was to ingest raw customer data using Microsoft Fabric, build a robust star schema data model, and create an interactive Power BI dashboard to identify the key drivers of customer churn and provide actionable business insights.
+## Business Problem
+In the competitive telecom industry, customer retention is a critical driver of profitability. The primary goal of this project was to develop a machine learning model that could accurately predict which customers are at a high risk of churning. This allows the business to proactively target these customers with retention campaigns, reducing revenue loss and improving customer loyalty.
+
+## Project Architecture & Methodology
+The entire solution was built on the **Microsoft Fabric** platform, demonstrating a modern, unified approach to data analytics. The process followed a standard data science lifecycle:
+
+1.  **Data Ingestion & Storage:** Raw customer data was ingested and stored in a central Fabric **Lakehouse**, providing a single source of truth.
+2.  **Data Cleaning & Transformation:** A **Dataflow (Gen2)** was used for initial, scalable cleaning of the raw data.
+3.  **Data Modeling:** A **PySpark Notebook** was used to transform the cleansed data into a robust **Star Schema**. This industry-standard model, consisting of a dim_customer dimension and a fact_churn fact table, is crucial for optimizing analytical query performance.
+4.  **Machine Learning:**
+    * The prepared data was used to train a predictive model.
+    * An **XGBoost** classifier, a powerful and industry-standard gradient boosting algorithm, was chosen for its high performance and accuracy.
+    * The model was trained and evaluated using Python and the Scikit-learn library.
+5.  **Visualization & Insights:** The model's predictions and key data insights were visualized in an interactive **Power BI** dashboard, making the results accessible to business stakeholders.
+
+## Model Performance & Results
+The final XGBoost model performed exceptionally well, achieving a **Test Accuracy of 79.77%**.
+
+This result demonstrates the model's strong capability to predict customer churn, providing a reliable tool to identify at-risk customers. The analysis revealed that customers on month-to-month contracts were a particularly high-risk segment, providing a clear and actionable insight for the business.
 
 ## Technologies Used
+* **Cloud Platform:** Microsoft Fabric
+* **Data Engineering:** Azure Data Lake, Dataflow Gen2, PySpark
+* **Data Modeling:** Star Schema
+* **Machine Learning:** Python, Scikit-learn, XGBoost
+* **Visualization:** Power BI
 
-* **Data Platform:** Microsoft Fabric (Lakehouse)
-* **Data Ingestion & Transformation:** Dataflows Gen2
-* **Data Modeling:** PySpark Notebooks, Star Schema Design
-* **BI & Visualization:** Power BI
-* **Key Language/Concepts:** DAX (for measures)
-
-## Project Pipeline
-
-1.  **Data Ingestion:** The "Telco Customer Churn" dataset (CSV) was ingested into the Fabric Lakehouse.
-2.  **Data Cleaning:** A Dataflow Gen2 was used to clean the raw data, including correcting data types and handling blank values. The clean data was loaded into a Delta table.
-3.  **Data Modeling:** A PySpark notebook transformed the clean data into a star schema with a fact_churn table and a dim_customer table, which is highly optimized for analytics.
-4.  **DAX Measures:** Key business metrics were created using DAX, including Churn Rate, Retention Rate, and Average Tenure.
-5.  **Dashboarding:** An interactive Power BI dashboard was built with cards, charts, and slicers to visualize the key insights.
-
-## Final Dashboard
-
-![Dashboard Screenshot](Customer-Retention-Dashboard.png)
-
-## Key Learnings
-
-* Gained practical experience in data modeling by transforming a single, flat table into an optimized star schema with fact and dimension tables, which is crucial for building scalable and efficient BI reports.
-* Authored complex DAX measures from scratch to define key business KPIs, including Churn Rate and Retention Rate, learning to use variables (VAR) for clarity and safe functions (DIVIDE) for robust calculations.
-* Developed a comprehensive understanding of an end-to-end analytics workflow within Microsoft Fabric, from ingesting raw data with Dataflows to building an interactive dashboard connected to a Lakehouse.
-* Learned to translate data into actionable business insights by using interactive visuals and slicers to discover that customers on "Month-to-month" contracts were the primary driver of churn.
-* Enhanced real-world troubleshooting skills by navigating and resolving common development challenges, including data type errors, UI discrepancies, and synchronization issues between the semantic model and the report layer.
-
-
+---
 ## Acknowledgements
-
-* The dataset used is the "Telco Customer Churn" dataset, sourced from Kaggle.
+The dataset used for this project is the "Telco Customer Churn" dataset, which is publicly available on Kaggle.
